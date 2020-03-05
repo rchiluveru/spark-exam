@@ -78,4 +78,3 @@ object SparkFirstAssignment extends SparkConfiguration with App {
   }
 
 }
-
