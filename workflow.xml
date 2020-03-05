@@ -10,7 +10,7 @@
             <master>yarn</master>
             <mode>client</mode>
             <name>MySpark</name>
-            <class>org.example.sparkExam.SparkFirstTest</class>
+            <class>org.example.sparkExam.SparkFirstAssignment</class>
             <jar>/user/rajujslns7936/JarLoc/spark-exam-1.0-SNAPSHOT.jar</jar>
             <spark-opts>--packages com.crealytics:spark-excel_2.11:0.13.1</spark-opts>
             <file>#</file>

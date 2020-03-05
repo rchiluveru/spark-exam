@@ -7,17 +7,15 @@ import java.io.FileNotFoundException
 import java.util.Properties
 
 object SparkFirstAssignment extends SparkConfiguration with App {
-
+  //Get the data set info from properties file
   val prop = new Properties();
   val propFileName = "config.properties";
   val inputStream = getClass.getClassLoader.getResourceAsStream(propFileName);
-
   if (inputStream != null) {
     prop.load(inputStream);
   } else {
     throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
   }
-
   val hdfsPath = prop.getProperty("hdfs.path")
   val ordersDatasetName = prop.getProperty("orders.dataset.name")
   val returnsDatasetName = prop.getProperty("returns.dataset.name")
