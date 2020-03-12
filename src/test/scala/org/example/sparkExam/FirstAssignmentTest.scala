@@ -6,6 +6,7 @@ import scala.io.Source
 import java.nio.charset.CodingErrorAction
 import scala.io.Codec
 import java.util.Properties
+import utils.SparkConfiguration
 
 class FirstAssignmentTest extends FunSuite {
   //Get the data set info from properties file

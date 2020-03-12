@@ -2,26 +2,11 @@ package org.example.sparkExam
 
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions._
-import utils.SparkConfiguration
+import utils.{PropertiesConfiguration, SparkConfiguration}
 import java.io.FileNotFoundException
 import java.util.Properties
 
-object SparkFirstAssignment extends SparkConfiguration with App {
-  //Get the data set info from properties file
-  val prop = new Properties();
-  val propFileName = "config.properties";
-  val inputStream = getClass.getClassLoader.getResourceAsStream(propFileName);
-  if (inputStream != null) {
-    prop.load(inputStream);
-  } else {
-    throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
-  }
-  val hdfsPath = prop.getProperty("hdfs.path")
-  val ordersDatasetName = prop.getProperty("orders.dataset.name")
-  val returnsDatasetName = prop.getProperty("returns.dataset.name")
-  val firstResultExcelName = prop.getProperty("first.result.excel.name")
-  val secondResultExcelName = prop.getProperty("second.result.excel.name")
-
+object SparkFirstAssignment extends SparkConfiguration with App with PropertiesConfiguration{
   try {
     //1. Read superstore sales data from Excel sheet
     val ordersExcel = spark.read.format("com.crealytics.spark.excel").option("sheetName", "Orders").option("header", "true").option("inferSchema", "false").load("/"+hdfsPath+"/SparkTest/"+ordersDatasetName+".xls")
